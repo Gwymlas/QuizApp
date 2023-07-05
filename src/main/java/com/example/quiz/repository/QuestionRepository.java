@@ -1,14 +1,10 @@
 package com.example.quiz.repository;
 
-import com.example.quiz.entity.Category;
 import com.example.quiz.entity.Question;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
-@Repository
-public class QuestionRepository {
-
-    public Question randomQuestion() {
-        var category = new Category(1L, "");
-        return new Question(1L, "", "", category, 100);
-    }
+public interface QuestionRepository extends JpaRepository<Question, Long> {
+    @Query(nativeQuery = true, value = "SELECT *  FROM question ORDER BY random() LIMIT 1")
+    Question randomQuestion();
 }

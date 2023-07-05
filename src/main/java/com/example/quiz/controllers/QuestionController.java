@@ -22,7 +22,7 @@ public class QuestionController {
         return QuestionGetDto.builder()
                 .id(question.getId())
                 .question(question.getQuestion())
-                .category(question.getCategory())
+                //.category(question.getCategory())
                 .difficulty(question.getDifficulty())
                 .build();
     }

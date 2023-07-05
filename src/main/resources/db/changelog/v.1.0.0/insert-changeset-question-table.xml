@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+        <changeSet id="insert-into-question" author="gwymlas">
+        <insert tableName="question">
+            <column name="question" value="first question"/>
+            <column name="answer" value="first"/>
+            <column name="category_id" value="1"/>
+            <column name="difficulty" value="100"/>
+        </insert>
+            <insert tableName="question">
+                <column name="question" value="second question"/>
+                <column name="answer" value="second"/>
+                <column name="category_id" value="2"/>
+                <column name="difficulty" value="200"/>
+            </insert>
+            <insert tableName="question">
+                <column name="question" value="third question"/>
+                <column name="answer" value="third"/>
+                <column name="category_id" value="3"/>
+                <column name="difficulty" value="300"/>
+            </insert>
+            <insert tableName="question">
+                <column name="question" value="fourth question"/>
+                <column name="answer" value="fourth"/>
+                <column name="category_id" value="1"/>
+                <column name="difficulty" value="400"/>
+            </insert>
+            <insert tableName="question">
+                <column name="question" value="fifth question"/>
+                <column name="answer" value="fifth"/>
+                <column name="category_id" value="2"/>
+                <column name="difficulty" value="500"/>
+            </insert>
+    </changeSet>
+</databaseChangeLog>
