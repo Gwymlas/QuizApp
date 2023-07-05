@@ -17,7 +17,11 @@ public class QuizService {
     }
 
     public CheckedAnswerDto checkAnswer(AnswerDto answer) {
-
-        return null;
+        var question = repository.findById(answer.getId());
+        return question.map(value -> CheckedAnswerDto.builder()
+                .id(value.getId())
+                .isCorrect(value.getAnswer().equals(answer.getAnswer()))
+                .answer(value.getAnswer())
+                .build()).orElse(null);
     }
 }
