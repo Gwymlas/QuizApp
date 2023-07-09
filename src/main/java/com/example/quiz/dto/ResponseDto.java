@@ -1,16 +1,14 @@
 package com.example.quiz.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+
 @AllArgsConstructor
-@NoArgsConstructor
-public class ResponseDto<T> {
-    private String code;
-    private String description;
-    private T result;
+@Getter
+public final class ResponseDto<T> {
+    private final String code;
+    private final String description;
+    private final T result;
 
     public static <T> ResponseDto<T> ok(T result) {
         return new ResponseDto<>("ok", null, result);

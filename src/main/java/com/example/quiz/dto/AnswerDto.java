@@ -1,11 +1,11 @@
 package com.example.quiz.dto;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-@Builder
-@Data
-public class AnswerDto {
-    private Long id;
-    private String answer;
+@AllArgsConstructor
+@Getter
+public final class AnswerDto {
+    private final Long id;
+    private final String answer;
 }

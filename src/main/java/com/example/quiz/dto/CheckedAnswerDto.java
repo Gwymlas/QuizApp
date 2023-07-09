@@ -1,12 +1,12 @@
 package com.example.quiz.dto;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-@Builder
-@Data
-public class CheckedAnswerDto {
-    private Long id;
-    private Boolean isCorrect;
-    private String answer;
+@AllArgsConstructor
+@Getter
+public final class CheckedAnswerDto {
+    private final Long id;
+    private final Boolean isCorrect;
+    private final String answer;
 }

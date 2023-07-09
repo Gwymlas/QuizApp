@@ -18,26 +18,16 @@ public class QuestionController {
     @GetMapping("random")
     public ResponseDto<QuestionGetDto> getRandomQuestion() {
         var question = quizService.getRandomQuestion();
-        return ResponseDto.ok(QuestionGetDto.builder()
-                .id(question.getId())
-                .question(question.getQuestion())
-                .category(question.getCategory())
-                .difficulty(question.getDifficulty())
-                .build());
+        var questionGetDto = new QuestionGetDto(question.getId(),
+                                                question.getQuestion(),
+                                                question.getCategory(),
+                                                question.getDifficulty());
+        return ResponseDto.ok(questionGetDto);
     }
 
     @PostMapping("check")
     public ResponseDto<CheckedAnswerDto> checkAnswer(@RequestBody AnswerDto answer) {
-        if (answer.getId() == null) {
-            return ResponseDto.badRequest("Не введен ID");
-        }
-
-        if (answer.getAnswer() == null) {
-            return ResponseDto.badRequest("Не введен ответ");
-        }
-
         var checkedAnswer = quizService.checkAnswer(answer);
-        if (checkedAnswer == null) return ResponseDto.badRequest("Не существует вопроса с таким ID");
         return ResponseDto.ok(checkedAnswer);
     }
 }

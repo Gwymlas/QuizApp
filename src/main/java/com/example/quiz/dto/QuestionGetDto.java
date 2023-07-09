@@ -1,14 +1,14 @@
 package com.example.quiz.dto;
 
 import com.example.quiz.entity.Category;
-import lombok.Builder;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-@Builder
-@Data
-public class QuestionGetDto {
-    private Long id;
-    private String question;
-    private Category category;
-    private Integer difficulty;
+@AllArgsConstructor
+@Getter
+public final class QuestionGetDto {
+    private final Long id;
+    private final String question;
+    private final Category category;
+    private final Integer difficulty;
 }
