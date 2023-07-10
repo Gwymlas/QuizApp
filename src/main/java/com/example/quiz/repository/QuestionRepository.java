@@ -1,6 +1,5 @@
 package com.example.quiz.repository;
 
-import com.example.quiz.entity.Category;
 import com.example.quiz.entity.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

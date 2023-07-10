@@ -1,17 +1,13 @@
 package com.example.quiz.controllers;
 
 import com.example.quiz.dto.*;
-import com.example.quiz.entity.Category;
 import com.example.quiz.entity.Question;
 import com.example.quiz.service.QuizService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.quiz.dto.ResponseDto.badRequest;
 import static com.example.quiz.dto.ResponseDto.ok;
 
 @RestController
@@ -39,13 +35,6 @@ public class GameController {
      */
     @PostMapping("create")
     public ResponseDto<CreateGameResponseDto> createGame(@RequestBody CreateGameDto createGameDto) {
-//        @RequestBody CreateGameDto
-//        Category first = new Category(1L, "first");
-//        Category second = new Category(2L, "second");
-//        ArrayList<Category> categories = new ArrayList<Category>();
-//        categories.add(first);
-//        categories.add(second);
-//        CreateGameDto createGameDto = new CreateGameDto(3, 1, 1000, categories);
         var response = quizService.createGame(createGameDto);
         return ok(response);
     }
@@ -64,7 +53,7 @@ public class GameController {
     }
 
     @PostMapping("{gameId}/finish")
-    public ResponseDto<List<GameAnswerResultDto>> finishGame(@PathVariable String gameId) {
-         return ok(quizService.finish(gameId));
+    public ResponseDto<List<AnswerResultDto>> finishGame(@PathVariable String gameId) {
+         return ok(quizService.finishGame(gameId));
     }
 }
