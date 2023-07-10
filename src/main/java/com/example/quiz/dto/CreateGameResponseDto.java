@@ -6,9 +6,9 @@ import lombok.NonNull;
 
 @AllArgsConstructor
 @Getter
-public final class AnswerDto {
+public final class CreateGameResponseDto {
     @NonNull
-    private final Long id;
+    private final String id;
     @NonNull
-    private final String answer;
+    private final Integer count;
 }
